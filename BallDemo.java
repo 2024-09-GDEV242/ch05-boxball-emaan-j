@@ -1,11 +1,12 @@
 import java.awt.Color;
+import java.util.Random;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
  *
- * @author Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author Emaan Jaffer
+ * @version 10/19/2024
  */
 
 public class BallDemo   
@@ -19,7 +20,20 @@ public class BallDemo
     {
         myCanvas = new Canvas("Ball Demo", 600, 500);
     }
-
+    
+    /**
+     * INSERT JAVA DOC COMMENT
+     */
+    public void boxBounce()
+    {
+        myCanvas.setVisible(true);
+        myCanvas.drawLine(50, 400, 550, 400);
+        myCanvas.drawLine(50, 100, 550, 100);
+        myCanvas.drawLine(50, 100, 50, 400);
+        myCanvas.drawLine(550, 100, 550, 400);
+        
+    }
+    
     /**
      * Simulate two bouncing balls
      */
