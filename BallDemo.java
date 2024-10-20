@@ -1,5 +1,5 @@
 import java.awt.Color;
-import java.util.Random;
+import java.util.ArrayList;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -22,16 +22,45 @@ public class BallDemo
     }
     
     /**
-     * INSERT JAVA DOC COMMENT
+     * Draws a box inside the canvas.
      */
-    public void boxBounce()
+    public void boxBounce(int ballAmount)
     {
+        ArrayList<BoxBall> boxList = new ArrayList<>();
+        
         myCanvas.setVisible(true);
         myCanvas.drawLine(50, 400, 550, 400);
         myCanvas.drawLine(50, 100, 550, 100);
         myCanvas.drawLine(50, 100, 50, 400);
         myCanvas.drawLine(550, 100, 550, 400);
         
+        for (int i = 0; i < ballAmount; i++)
+        {
+            BoxBall boxBall = new BoxBall();
+            boxList.add(boxBall);
+        }
+        
+        boolean finished = false;
+        while(!finished)
+        {
+            for (int i = 0; i < boxList.size(); i++)
+            {
+                BoxBall showBall = boxList.get(i);
+                //reboundings
+                if (showBall.xcord == 45 || showBall.xcord == 545)
+                {
+                    showBall.speed *= -1;
+                }
+         
+                if (showBall.ycord == 95 || showBall.ycord == 395)
+                {
+                    showBall.speed *= -1;
+                }
+                
+                showBall.draw();
+                showBall.move();
+            }
+        }
     }
     
     /**
