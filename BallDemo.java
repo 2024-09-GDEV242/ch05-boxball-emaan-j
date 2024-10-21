@@ -1,9 +1,10 @@
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
- * Canvas class. 
+ * Canvas class.
  *
  * @author Emaan Jaffer
  * @version 10/19/2024
@@ -12,6 +13,8 @@ import java.util.ArrayList;
 public class BallDemo   
 {
     private Canvas myCanvas;
+    Random rand = new Random();
+    Color randColor;
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -36,6 +39,10 @@ public class BallDemo
         
         for (int i = 0; i < ballAmount; i++)
         {
+            int r = rand.nextInt(225);
+            int g = rand.nextInt(225);
+            int b = rand.nextInt(225);
+            randColor = new Color (r, g, b);
             BoxBall boxBall = new BoxBall();
             boxList.add(boxBall);
         }

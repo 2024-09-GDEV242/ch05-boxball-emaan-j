@@ -27,12 +27,6 @@ public class BoxBall
         xcord = rand.nextInt(501)+50;
         ycord = rand.nextInt(301)+100;
         canvas = new Canvas("Box Ball", 600, 500);
-        
-        //random color
-        int r = rand.nextInt(225);
-        int g = rand.nextInt(225);
-        int b = rand.nextInt(225);
-        randColor = new Color (r, g, b);
     }
     
     /**
