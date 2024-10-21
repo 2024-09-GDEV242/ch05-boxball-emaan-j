@@ -1,7 +1,6 @@
 import java.util.Random;
 import java.awt.Color;
-
-
+import java.awt.geom.*;
 
 /**
  * Write a description of class BoxBall here.
@@ -11,10 +10,10 @@ import java.awt.Color;
  */
 public class BoxBall
 {
-    public int xcord = 0;
-    public int ycord = 0;
-    public int speed = 0;
-    private Canvas myCanvas;
+    public int xcord;
+    public int ycord;
+    public int speed;
+    private Canvas canvas;
     private Ellipse2D.Double circle;
     Random rand = new Random();
     
@@ -34,26 +33,32 @@ public class BoxBall
         Color randColor = new Color (r, g, b);
     }
     
+    /**
+     * Draws the ball
+     */
     public void draw()
     {
-        myCanvas = new Canvas("Box Ball", 600, 500);
-        myCanvas.drawOval(xcord, ycord, 2, 2);
+        canvas = new Canvas("Box Ball", 600, 500);
+        canvas.fillCircle(xcord, ycord, 15);
     }
 
+    /**
+     * Moves the ball by a random amount
+     */
     public void move()
     {
-         xcord += rand.nextInt(14)-7;
-         ycord += rand.nextInt(14)-7;
+        xcord += rand.nextInt(14)-7;
+        ycord += rand.nextInt(14)-7;
          
-         if (xcord == 0)
-         {
-             xcord += rand.nextInt(14)-7;
-         }
+        if (xcord == 0)
+        {
+            xcord += rand.nextInt(14)-7;
+        }
          
-         if (ycord == 0)
-         {
-             ycord += rand.nextInt(14)-7;
-         }
+        if (ycord == 0)
+        {
+            ycord += rand.nextInt(14)-7;
+        }
     }
     
     

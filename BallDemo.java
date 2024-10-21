@@ -41,11 +41,13 @@ public class BallDemo
         }
         
         boolean finished = false;
-        while(!finished)
+        while(!finished && System.currentTimeMillis() < 1000000 )
         {
             for (int i = 0; i < boxList.size(); i++)
             {
                 BoxBall showBall = boxList.get(i);
+                showBall.draw();
+                showBall.move();
                 //reboundings
                 if (showBall.xcord == 45 || showBall.xcord == 545)
                 {
@@ -57,8 +59,6 @@ public class BallDemo
                     showBall.speed *= -1;
                 }
                 
-                showBall.draw();
-                showBall.move();
             }
         }
     }
