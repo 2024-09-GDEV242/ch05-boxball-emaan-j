@@ -13,6 +13,7 @@ public class BoxBall
     public int xcord;
     public int ycord;
     public int speed;
+    private Color randColor;
     private Canvas canvas;
     private Ellipse2D.Double circle;
     Random rand = new Random();
@@ -25,12 +26,13 @@ public class BoxBall
         speed = rand.nextInt(11);
         xcord = rand.nextInt(501)+50;
         ycord = rand.nextInt(301)+100;
+        canvas = new Canvas("Box Ball", 600, 500);
         
         //random color
         int r = rand.nextInt(225);
         int g = rand.nextInt(225);
         int b = rand.nextInt(225);
-        Color randColor = new Color (r, g, b);
+        randColor = new Color (r, g, b);
     }
     
     /**
@@ -38,8 +40,9 @@ public class BoxBall
      */
     public void draw()
     {
-        canvas = new Canvas("Box Ball", 600, 500);
-        canvas.fillCircle(xcord, ycord, 15);
+        circle = new Ellipse2D.Double(xcord-15, ycord-15, 30, 20);
+        canvas.setForegroundColor(randColor);
+        canvas.fill(circle);
     }
 
     /**
